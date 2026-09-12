@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= GATE INTRO ================= -->
+<div class="gate" id="gate">
+  <div class="gate__panel gate__panel--left"></div>
+  <div class="gate__panel gate__panel--right"></div>
+  <div class="gate__orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="gate__content">
+    <p class="gate__eyebrow">a surprise for</p>
+    <h2 class="gate__name">Srishti</h2>
+    <p class="gate__hint">A little world made from our favorite moments</p>
+    <button class="gate__btn" id="gateBtn">Open your gift</button>
+  </div>
+</div>
+
+<!-- Twinkling sky background used behind the hero -->
+<canvas id="sky"></canvas>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero__moon" aria-hidden="true"></div>
+  <div class="hero__halo" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="hero__eyebrow">a little something for</p>
+    <h1 class="hero__name" id="wifeName">Srishti</h1>
+    <p class="hero__line">Every year with you is my favorite chapter.<br>Here's to another one.</p>
+    <p class="hero__promise">made of memories, wishes, and a little bit of magic</p>
+    <button class="hero__scroll" id="scrollCue" aria-label="Scroll down">
+      <span></span>
+      <small>see your gallery</small>
+    </button>
+  </div>
+</header>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery-section" id="gallery">
+  <div class="section-head">
+    <span class="section-head__kicker">the scrapbook</span>
+    <h2>Moments I keep</h2>
+    <p>Tap any photo to see it up close.</p>
+  </div>
+
+  <div class="gallery" id="galleryGrid">
+    <figure class="gallery__item" data-full="images/photo1.jpg">
+      <img src="images/photo1.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>The day I knew</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo2.jpg">
+      <img src="images/photo2.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Somewhere sunny</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo3.jpg">
+      <img src="images/photo3.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Your laugh, mid-sentence</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo4.jpg">
+      <img src="images/photo4.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Quiet Sunday</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo5.jpg">
+      <img src="images/photo5.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Us, on the road</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo6.jpg">
+      <img src="images/photo6.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Home, wherever you are</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo7.jpg">
+      <img src="images/photo7.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>That trip we almost skipped</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo8.jpg">
+      <img src="images/photo8.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Still my favorite face</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo9.jpg">
+      <img src="images/photo9.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Caught you off guard</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo10.jpg">
+      <img src="images/photo10.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>That evening we didn't want to end</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo11.jpg">
+      <img src="images/photo11.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>Just us, being us</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo12.jpg">
+      <img src="images/photo12.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>One of my favorite days</figcaption>
+    </figure>
+    <figure class="gallery__item" data-full="images/photo13.jpg">
+      <img src="images/photo13.jpg" alt="A favorite memory together" loading="lazy">
+      <figcaption>This smile, always</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= STORY SLIDER (train-style) ================= -->
+<section class="slider-section" id="storySlider">
+  <div class="section-head">
+    <span class="section-head__kicker">our little story</span>
+    <h2>Frame by frame</h2>
+    <p>Click the arrows to keep the story moving.</p>
+  </div>
+
+  <div class="slider">
+    <button class="slider__arrow slider__arrow--prev" id="prevSlide" aria-label="Previous slide">&#8592;</button>
+
+    <div class="slider__viewport">
+      <div class="slider__track" id="sliderTrack">
+        <article class="slide is-active">
+          <div class="slide__frame"><img src="images/slide1.jpg" alt="Memory one"></div>
+          <div class="slide__message">
+            <span class="slide__tag">Chapter 01</span>
+            <h3>Where it started</h3>
+            <p>The first time I saw you smile like that, I remember thinking: oh no, I'm in trouble.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="slide__frame"><img src="images/slide2.jpg" alt="Memory two"></div>
+          <div class="slide__message">
+            <span class="slide__tag">Chapter 02</span>
+            <h3>The trip we still talk about</h3>
+            <p>Wrong turns, missed trains, and somehow still the best days of that year.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="slide__frame"><img src="images/slide3.jpg" alt="Memory three"></div>
+          <div class="slide__message">
+            <span class="slide__tag">Chapter 03</span>
+            <h3>Ordinary Tuesdays</h3>
+            <p>No occasion, no plan — just you, me, and the kind of quiet I never want to lose.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="slide__frame"><img src="images/slide4.jpg" alt="Memory four"></div>
+          <div class="slide__message">
+            <span class="slide__tag">Chapter 04</span>
+            <h3>Through the hard days</h3>
+            <p>You made hard things lighter, just by staying. That's not a small thing.</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="slide__frame"><img src="images/slide5.jpg" alt="Memory five"></div>
+          <div class="slide__message">
+            <span class="slide__tag">Chapter 05</span>
+            <h3>Right now</h3>
+            <p>Another year, another reason to be grateful it's you. Happy Birthday, Srishti.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <button class="slider__arrow slider__arrow--next" id="nextSlide" aria-label="Next slide">&#8594;</button>
+  </div>
+
+  <div class="slider__dots" id="sliderDots"></div>
+</section>
+
+<!-- ================= FIREWORKS CELEBRATION ================= -->
+<section class="celebrate" id="celebrate">
+  <canvas id="fireworks"></canvas>
+  <div class="celebrate__inner">
+    <p class="celebrate__eyebrow">make some noise for</p>
+    <h2 class="celebrate__title" id="celebrateTitle" aria-label="Happy Birthday Srishti"></h2>
+    <button class="celebrate__btn" id="celebrateBtn">Light the fireworks</button>
+  </div>
+</section>
+
+<!-- ================= LETTER ================= -->
+<section class="letter-section">
+  <div class="letter">
+    <span class="letter__tape" aria-hidden="true"></span>
+    <p class="letter__mark">&#10086;</p>
+    <p>
+      Happy birthday to the person who makes ordinary days feel worth remembering.
+      Thank you for your patience, your laugh at 2am, and the way you make every
+      place feel like home. I hope this year gives you everything you quietly
+      hope for and never ask out loud.
+    </p>
+    <p class="letter__sign">Always yours,<br><span id="signName">Me</span></p>
+  </div>
+</section>
+
+<!-- ================= CAKE / FINALE ================= -->
+<section class="finale" id="finale">
+  <span class="finale__star finale__star--one" aria-hidden="true">&#10022;</span>
+  <span class="finale__star finale__star--two" aria-hidden="true">&#10022;</span>
+  <h2>One more thing</h2>
+  <p class="finale__hint">Make a wish, then blow out the candle.</p>
+
+  <button class="cake" id="cakeBtn" aria-label="Blow out the candle">
+    <span class="flame" id="flame"></span>
+    <span class="candle"></span>
+    <span class="cake__top"></span>
+    <span class="cake__mid"></span>
+    <span class="cake__base"></span>
+  </button>
+
+  <p class="finale__msg" id="finaleMsg">Happy Birthday! I love you. &#10084;</p>
+</section>
+
+<div id="confettiLayer" aria-hidden="true"></div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<footer class="site-footer">made with love, just for you</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
