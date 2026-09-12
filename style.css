@@ -62,36 +62,6 @@ body{
   to{ transform: translate3d(-12vw, 120vh, 0) rotate(16deg); }
 }
 
-.site-nav{
-  position: fixed;
-  top: 18px;
-  right: 24px;
-  z-index: 120;
-  display: flex;
-  gap: 6px;
-  padding: 6px;
-  border: 1px solid rgba(245,239,230,0.16);
-  border-radius: 30px;
-  background: rgba(27,21,51,0.4);
-  backdrop-filter: blur(12px);
-}
-
-.site-nav a{
-  padding: 7px 11px;
-  border-radius: 20px;
-  color: rgba(245,239,230,0.82);
-  font-size: 0.68rem;
-  text-decoration: none;
-  transition: background 250ms ease, color 250ms ease, transform 250ms ease;
-}
-
-.site-nav a:hover,
-.site-nav a:focus-visible{
-  color: var(--ink);
-  background: var(--gold);
-  transform: translateY(-2px);
-}
-
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *, *::before, *::after{
@@ -852,17 +822,6 @@ body{
 }
 
 @media (max-width: 720px){
-  .site-nav{
-    top: auto;
-    right: 50%;
-    bottom: 14px;
-    transform: translateX(50%);
-    max-width: calc(100vw - 20px);
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .site-nav a{ padding: 6px 9px; }
   .journey__steps{ grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
   .slide{
     grid-template-columns: 1fr;
