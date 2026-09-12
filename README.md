@@ -1,12 +1,16 @@
 # Birthday website — quick guide
 
-The page now has an opening gate, then 5 sections, top to bottom:
+The page now has an opening gate, then a connected birthday journey:
 0. **Gate intro** — two doors that slide open like a gift reveal when she taps "Open your gift"; her name then falls in letter by letter and settles in one smooth stop
-1. **Hero** — her name over a twinkling night sky
-2. **Gallery** — a masonry photo grid, click any photo for a full-size lightbox
-3. **Story slider** — a "train" of sliding cards (photo + message), moved with the arrow buttons, dots, swipe, or arrow keys
-4. **Fireworks celebration** — animated fireworks on a canvas, with "Happy Birthday, Srishti!" popping in letter by letter, plus a "Light the fireworks" button for extra bursts
-5. **Letter** + a **cake** you click to blow out the candle (confetti burst)
+1. **Hero** — her name over a twinkling night sky, moon, orbit halo, rain ambience, and a live countdown to September 15
+2. **Journey** — a nature-inspired chapter with then / now / always messages
+3. **Gallery** — a masonry photo grid, click any photo for a full-size lightbox
+4. **Story slider** — a "train" of sliding cards (photo + message), auto-advancing every 2 seconds and also moved with arrows, dots, swipe, or arrow keys
+5. **Fireworks celebration** — animated fireworks on a canvas, with "Happy Birthday, Srishti!" popping in letter by letter, plus a "Light the fireworks" button for extra bursts
+6. **Letter** + a **cake** you click to blow out the candle (confetti burst)
+
+The floating navigation links every chapter together, and the page respects
+reduced-motion preferences for visitors who need less animation.
 
 Everything is responsive — tuned for phones, tablets, and desktop (including
 landscape phone orientation), so the URL works well no matter what she opens it on.

@@ -57,6 +57,44 @@
 })();
 
 /* =========================================================
+   0.5. Gentle rain ambience + September 15 countdown
+   ========================================================= */
+(function initBirthdayAtmosphere(){
+  const rain = document.getElementById('rain');
+  const countdown = document.getElementById('countdownValue');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (rain && !reduceMotion) {
+    for (let i = 0; i < 42; i++) {
+      const drop = document.createElement('span');
+      drop.className = 'rain-drop';
+      drop.style.left = `${Math.random() * 108}%`;
+      drop.style.height = `${28 + Math.random() * 48}px`;
+      drop.style.opacity = `${0.18 + Math.random() * 0.5}`;
+      drop.style.animationDuration = `${1.7 + Math.random() * 2.4}s`;
+      drop.style.animationDelay = `${Math.random() * -4}s`;
+      rain.appendChild(drop);
+    }
+  }
+
+  function updateCountdown(){
+    if (!countdown) return;
+    const now = new Date();
+    let birthday = new Date(now.getFullYear(), 8, 15, 0, 0, 0);
+    if (now >= birthday) birthday = new Date(now.getFullYear() + 1, 8, 15, 0, 0, 0);
+    const remaining = birthday - now;
+    const days = Math.floor(remaining / 86400000);
+    const hours = Math.floor((remaining % 86400000) / 3600000);
+    const minutes = Math.floor((remaining % 3600000) / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+    countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
+})();
+
+/* =========================================================
    1. Twinkling night sky behind the hero
    ========================================================= */
 (function initSky(){
@@ -257,7 +295,33 @@ document.getElementById('scrollCue').addEventListener('click', () => {
     touchStartX = null;
   });
 
+  let autoplayId = null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function startAutoplay(){
+    if (reduceMotion || autoplayId) return;
+    autoplayId = window.setInterval(() => goTo(index + 1), 2000);
+  }
+
+  function stopAutoplay(){
+    window.clearInterval(autoplayId);
+    autoplayId = null;
+  }
+
+  sliderSectionEvents();
+
+  function sliderSectionEvents(){
+    const sliderSection = document.getElementById('storySlider');
+    sliderSection.addEventListener('mouseenter', stopAutoplay);
+    sliderSection.addEventListener('mouseleave', startAutoplay);
+    sliderSection.addEventListener('focusin', stopAutoplay);
+    sliderSection.addEventListener('focusout', startAutoplay);
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', startAutoplay, { passive: true });
+  }
+
   render();
+  startAutoplay();
 })();
 
 /* =========================================================

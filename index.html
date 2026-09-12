@@ -11,6 +11,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="rain" id="rain" aria-hidden="true"></div>
+<nav class="site-nav" aria-label="Birthday sections">
+  <a href="#top">Home</a>
+  <a href="#journey">Journey</a>
+  <a href="#gallery">Memories</a>
+  <a href="#storySlider">Story</a>
+  <a href="#finale">Wish</a>
+</nav>
 
 <!-- ================= GATE INTRO ================= -->
 <div class="gate" id="gate">
@@ -37,12 +45,44 @@
     <h1 class="hero__name" id="wifeName">Srishti</h1>
     <p class="hero__line">Every year with you is my favorite chapter.<br>Here's to another one.</p>
     <p class="hero__promise">made of memories, wishes, and a little bit of magic</p>
+    <div class="birthday-countdown" id="birthdayCountdown" aria-live="polite">
+      <span class="birthday-countdown__label">counting down to September 15</span>
+      <strong id="countdownValue">your special day</strong>
+    </div>
     <button class="hero__scroll" id="scrollCue" aria-label="Scroll down">
       <span></span>
       <small>see your gallery</small>
     </button>
   </div>
 </header>
+
+<!-- ================= JOURNEY ================= -->
+<section class="journey-section" id="journey">
+  <div class="journey__nature" aria-hidden="true"></div>
+  <div class="journey__content">
+    <span class="section-head__kicker">a new chapter begins</span>
+    <h2>Our journey, written in little moments</h2>
+    <p class="journey__lead">If life is a long road, I want every turn, sunrise, rainy evening, and quiet pause to be with you.</p>
+    <div class="journey__steps">
+      <article class="journey-card">
+        <span class="journey-card__number">01</span>
+        <h3>Then</h3>
+        <p>Before you, days were days. After you, even the ordinary started to glow.</p>
+      </article>
+      <article class="journey-card">
+        <span class="journey-card__number">02</span>
+        <h3>Now</h3>
+        <p>You are my favorite person to laugh with, dream with, and come home to.</p>
+      </article>
+      <article class="journey-card">
+        <span class="journey-card__number">03</span>
+        <h3>Always</h3>
+        <p>More sunsets, more adventures, more small memories that become everything.</p>
+      </article>
+    </div>
+    <a class="journey__link" href="#gallery">Walk through our memories <span>&#8595;</span></a>
+  </div>
+</section>
 
 <!-- ================= GALLERY ================= -->
 <section class="gallery-section" id="gallery">
@@ -200,7 +240,7 @@
   <span class="finale__star finale__star--one" aria-hidden="true">&#10022;</span>
   <span class="finale__star finale__star--two" aria-hidden="true">&#10022;</span>
   <h2>One more thing</h2>
-  <p class="finale__hint">Make a wish, then blow out the candle.</p>
+  <p class="finale__hint">Make a wish, then blow out the candle. May September 15 bring you a year as beautiful as your heart.</p>
 
   <button class="cake" id="cakeBtn" aria-label="Blow out the candle">
     <span class="flame" id="flame"></span>

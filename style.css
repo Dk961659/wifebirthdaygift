@@ -39,6 +39,59 @@ body{
   overflow-x: hidden;
 }
 
+.rain{
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.rain-drop{
+  position: absolute;
+  top: -12vh;
+  width: 1px;
+  height: 54px;
+  background: linear-gradient(transparent, rgba(232,180,188,0.8));
+  transform: rotate(16deg);
+  animation: rain-fall linear infinite;
+}
+
+@keyframes rain-fall{
+  to{ transform: translate3d(-12vw, 120vh, 0) rotate(16deg); }
+}
+
+.site-nav{
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 120;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(245,239,230,0.16);
+  border-radius: 30px;
+  background: rgba(27,21,51,0.4);
+  backdrop-filter: blur(12px);
+}
+
+.site-nav a{
+  padding: 7px 11px;
+  border-radius: 20px;
+  color: rgba(245,239,230,0.82);
+  font-size: 0.68rem;
+  text-decoration: none;
+  transition: background 250ms ease, color 250ms ease, transform 250ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible{
+  color: var(--ink);
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *, *::before, *::after{
@@ -346,6 +399,33 @@ body{
   animation: rise 1000ms ease-out 700ms forwards;
 }
 
+.birthday-countdown{
+  margin: 30px auto 0;
+  opacity: 0;
+  color: var(--cream);
+}
+
+.hero__inner.is-visible .birthday-countdown{
+  animation: rise 1000ms ease-out 850ms forwards;
+}
+
+.birthday-countdown__label{
+  display: block;
+  color: var(--blush);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.birthday-countdown strong{
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
 @keyframes rise{
   from{ opacity: 0; transform: translateY(18px); }
   to{ opacity: 1; transform: translateY(0); }
@@ -389,6 +469,125 @@ body{
 .hero__scroll small{
   font-size: 0.75rem;
   color: var(--blush);
+}
+
+/* ============================================================
+   JOURNEY — a quiet, nature-inspired chapter between sky and photos
+   ============================================================ */
+.journey-section{
+  position: relative;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--cream);
+  background:
+    linear-gradient(180deg, rgba(27,21,51,0.08), rgba(27,21,51,0.58)),
+    linear-gradient(145deg, #4d6b60 0%, #294b4c 42%, #1B1533 100%);
+}
+
+.journey-section::before,
+.journey-section::after{
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  width: 70%;
+  height: 55%;
+  border-radius: 50% 50% 0 0;
+  background: rgba(18,47,46,0.52);
+  transform: rotate(-8deg);
+}
+
+.journey-section::before{ left: -18%; }
+.journey-section::after{ right: -20%; transform: rotate(8deg); background: rgba(27,21,51,0.65); }
+
+.journey__nature{
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  background:
+    radial-gradient(circle at 20% 28%, rgba(255,246,220,0.92) 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 20%, rgba(255,246,220,0.7) 0 1px, transparent 2px),
+    radial-gradient(circle at 55% 35%, rgba(201,162,39,0.6) 0 2px, transparent 3px);
+  background-size: 170px 140px, 220px 180px, 260px 210px;
+  animation: nature-glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes nature-glow{
+  from{ opacity: 0.35; transform: translateY(5px); }
+  to{ opacity: 0.72; transform: translateY(-5px); }
+}
+
+.journey__content{
+  position: relative;
+  z-index: 2;
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.journey__content h2{
+  max-width: 680px;
+  margin: 0 auto 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.journey__lead{
+  max-width: 590px;
+  margin: 0 auto 52px;
+  color: rgba(245,239,230,0.78);
+  font-size: 1.05rem;
+}
+
+.journey__steps{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: left;
+}
+
+.journey-card{
+  padding: 25px;
+  border: 1px solid rgba(245,239,230,0.18);
+  border-radius: 14px;
+  background: rgba(27,21,51,0.22);
+  backdrop-filter: blur(8px);
+  transition: transform 350ms ease, background 350ms ease;
+}
+
+.journey-card:hover{ transform: translateY(-8px); background: rgba(27,21,51,0.38); }
+
+.journey-card__number{
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+.journey-card h3{
+  margin: 12px 0 7px;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+}
+
+.journey-card p{
+  margin: 0;
+  color: rgba(245,239,230,0.72);
+  font-size: 0.9rem;
+}
+
+.journey__link{
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 42px;
+  color: var(--cream);
+  font-size: 0.8rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 5px;
 }
 
 /* ============================================================
@@ -515,9 +714,9 @@ body{
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 1000px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   gap: 12px;
 }
 
@@ -538,9 +737,10 @@ body{
 .slide{
   flex: 0 0 100%;
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   align-items: center;
   gap: 36px;
+  min-height: 500px;
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
@@ -550,15 +750,22 @@ body{
 
 .slide__frame{
   position: relative;
-  aspect-ratio: 4 / 3;
+  height: 500px;
   overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--plum), var(--ink));
 }
 
 .slide__frame img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.12);
+  display: block;
+  position: absolute;
+  inset: 14px;
+  width: calc(100% - 28px);
+  height: calc(100% - 28px);
+  object-fit: contain;
+  background: var(--ink);
+  transform: scale(1);
   transition: transform 6s ease;
 }
 
@@ -645,7 +852,23 @@ body{
 }
 
 @media (max-width: 720px){
-  .slide{ grid-template-columns: 1fr; }
+  .site-nav{
+    top: auto;
+    right: 50%;
+    bottom: 14px;
+    transform: translateX(50%);
+    max-width: calc(100vw - 20px);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .site-nav a{ padding: 6px 9px; }
+  .journey__steps{ grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+  .slide{
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .slide__frame{ height: auto; aspect-ratio: 4 / 3; }
   .slide__message{ padding: 4px 24px 28px; }
   .slider__arrow{ width: 38px; height: 38px; font-size: 1rem; }
 }
@@ -1057,6 +1280,9 @@ body{
   .celebrate__title{ font-size: clamp(1.8rem, 8vw, 2.6rem); }
   .hero__moon{ top: 9%; right: 8%; opacity: 0.6; }
   .hero__promise{ font-size: 0.58rem; letter-spacing: 0.12em; }
+  .journey-section{ min-height: 820px; }
+  .journey__content{ padding: 86px 20px; }
+  .journey__lead{ font-size: 0.95rem; }
 }
 
 @media (max-width: 360px){
